@@ -44,9 +44,3 @@ workflows:
             - swap_build_main
           requires:
             - approve-main
-      - upload-main:
-          context:
-            - swap_cicd
-            - swap_build_main
-          requires:
-            - build-main
