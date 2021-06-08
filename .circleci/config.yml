@@ -14,11 +14,11 @@ build-template: &build-template
         command: pwd && yarn
     - run:
         name: check modules
-        command: pwd && ls *
+        command: pwd && ls ./
     - run:
-        no_output_timeout: 10m
+        # no_output_timeout: 10m
         name: Building ...
-        command: pwd && yarn build
+        command: pwd && ls ./ && yarn build
     - run: 
         name: Upload dist
         command: aws s3 cp ./build s3://$BUCKET_NAME/ --acl bucket-owner-full-control --recursive --cache-control "public,max-age=600,s-maxage=3600"
